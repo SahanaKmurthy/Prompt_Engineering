@@ -53,7 +53,7 @@ Students are required to propose and complete a final project involving advanced
 To run the experiments locally:
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/Prompt_Engineerin.git
+   git clone https://github.com/SahanaKmurthy/Prompt_Engineering.git
    cd Prompt_Engineering
    ```
 2. Install dependencies:
