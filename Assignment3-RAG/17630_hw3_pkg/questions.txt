@@ -1,0 +1,69 @@
+# How did you pre-process the data, and what considerations did you have in deciding your pre-process procedure?
+In the pre-processing step, I loaded the input dataset, which initially contained redundant metadata such as "title" and "authors". These fields were removed to retain only the "text" key, which held the full content of each research paper. Additionally, I filtered out non-essential sections like "references", "acknowledgments", and "author information" to reduce noise and improve retrieval quality. This reduction in data size improved efficiency while ensuring that the retained content was relevant for retrieval and generation. The pre-processing logic is implemented in [Notebook Cell X], where I used regex-based filtering to remove unwanted sections before proceeding with chunking.
+For example, a sample research paper originally had:
+{
+  "title": "Advancements in Neural Networks",
+  "authors": "John Doe, Jane Smith",
+  "text": "Abstract: This paper explores... Introduction: Deep learning... References: [1]..."
+}
+
+After pre-processing, it became:
+{
+  "text": "Abstract: This paper explores... Introduction: Deep learning..."
+}
+
+
+
+
+
+# How did you chunk and index your data? What indices did you consider and which one did you finally choose?
+For chunking, I used NLTK's sentence tokenizer to split the text into sentences. I then iteratively combined sentences into chunks until reaching a max token limit of 300. To maintain context across chunks, I introduced an overlap of 64 tokens between consecutive chunks.
+
+For example, given the text:
+"Deep learning models require large datasets. Training them is computationally expensive. However, they achieve state-of-the-art results in various tasks."
+The chunking approach generated:
+
+Chunk 1: "Deep learning models require large datasets. Training them is computationally expensive."
+Chunk 2: "Training them is computationally expensive. However, they achieve state-of-the-art results in various tasks."
+For indexing, I explored:
+
+Chunk ID Mapping – Assigning a unique ID to each chunk for traceability.
+Semantic Vector Indexing – Encoding each chunk using the all-MiniLM-L6-v2 transformer for similarity-based retrieval.
+I chose Chunk ID for traceability and Semantic Vectors for retrieval, ensuring that searches could locate relevant content efficiently.
+
+
+
+
+# What discrepencies did you see between the generated answers and the text provided by the retriever? Were any of the answers plausable hallucinations?
+During evaluation, I observed that some generated answers contained extra unverified details that were not explicitly present in the retrieved chunks. In other cases, the model missed key information or contradicted the retrieved text. Below are examples illustrating these issues:
+
+Example 1 – Expansion with Unverified Details
+Question: "What are the different metrics for evaluating a RAG system?"
+
+Ground Truth: "Evaluation metrics include Exact Match (EM), Mean Reciprocal Rank (MRR), and ROUGE scores."
+Generated Answer: "The performance of a RAG system can be assessed using various metrics such as EM, MRR, ROUGE, and BLEU, as well as user feedback to measure overall relevance."
+Discrepancy: The model introduced BLEU and user feedback, which were not mentioned in the retrieved text. While BLEU is a valid metric in some NLP tasks, its inclusion here is speculative, making this a plausible hallucination.
+
+Example 2 – Overconfident Hallucination
+Question: "Who introduced the Transformer model?"
+
+Ground Truth: "IDK" (Not available in retrieved text)
+Generated Answer: "The Transformer model was introduced by Vaswani et al. in 2017 in the paper 'Attention Is All You Need'."
+Discrepancy: While factually correct, the model guessed the answer despite not finding it in the retrieved text, demonstrating an overconfident hallucination.
+
+Example 3 – Missing Key Information
+Question: "What are the limitations of dense retrieval models?"
+
+Ground Truth: "Dense retrieval models require large-scale training data, struggle with out-of-domain generalization, and are computationally expensive."
+Generated Answer: "Dense retrieval models can be expensive to train."
+Discrepancy: The generated response missed key details about generalization issues and reliance on large-scale training data, making the answer incomplete.
+
+Hallucinations were particularly noticeable in cases where the ground truth was "IDK"—the model sometimes overconfidently generated an answer, as seen in example 2, where the generated response inferred information that was not present in the retrieved documents. This aligns with the general challenge of LLMs extrapolating beyond provided context.
+
+
+
+# Report the precision (P), recall (R) and F1 scores for the queries provided, plus your own queries
+
+            P	      R	      	F1
+Provided    0.871     0.879     0.875
+Your own    0.915     0.938 	0.926

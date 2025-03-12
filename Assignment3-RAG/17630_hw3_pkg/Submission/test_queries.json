@@ -1,0 +1,38 @@
+[
+    {
+        "query": "What does RAG do?",
+        "answer": "RAG retrieves relevant information based on the query and then prompts an LLM to generate a response in the context of the retrieved information."
+    },
+    {
+        "query": "What are the names of the two retrievers used in the study?",
+        "answer": "Contriever and Dragon"
+    },
+    {
+        "query": "What is SELF-ROUTE?",
+        "answer": "SELF-ROUTE utilizes LLM itself to route queries based on self-reflection, under the assumption that LLMs are well-calibrated in predicting whether a query is answerable given provided context."
+    },
+    {
+        "query": "What is the main goal of the research described in the paper?",
+        "answer": "The research aims to compare Retrieval Augmented Generation (RAG) and long-context Large Language Models (LLMs) to understand their strengths and weaknesses, and to combine them effectively."
+    },
+    {
+        "query": "What advantage does RAG still have over long-context LLMs?",
+        "answer": "Despite potentially lower performance, RAG offers a significantly lower computational cost compared to long-context LLMs."
+    },
+    {
+        "query": "How does SELF-ROUTE decide whether to use RAG or a long-context LLM?",
+        "answer": "SELF-ROUTE uses the LLM's own assessment of whether a query is answerable given the retrieved context to decide whether to use RAG or a long-context LLM."
+    },
+    {
+        "query": "How does SELF-ROUTE perform on visual question answering tasks?",
+        "answer": "IDK"
+    },
+    {
+        "query": "What is the impact of SELF-ROUTE on the carbon footprint of LLM applications?",
+        "answer": "IDK"
+    },
+    {
+        "query": "Can SELF-ROUTE be applied to other modalities beyond text, such as audio or video?",
+        "answer": "IDK"
+    }
+]

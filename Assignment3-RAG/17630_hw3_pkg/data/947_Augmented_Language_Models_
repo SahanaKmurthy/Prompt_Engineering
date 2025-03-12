@@ -1,0 +1,10 @@
+@article{
+mialon2023augmented,
+title={Augmented Language Models: a Survey},
+author={Gr{\'e}goire Mialon and Roberto Dessi and Maria Lomeli and Christoforos Nalmpantis and Ramakanth Pasunuru and Roberta Raileanu and Baptiste Roziere and Timo Schick and Jane Dwivedi-Yu and Asli Celikyilmaz and Edouard Grave and Yann LeCun and Thomas Scialom},
+journal={Transactions on Machine Learning Research},
+issn={2835-8856},
+year={2023},
+url={https://openreview.net/forum?id=jh7wH2AzKK},
+note={Survey Certification}
+}

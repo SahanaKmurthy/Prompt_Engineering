@@ -1,0 +1,23 @@
+[{
+    "query": "What is RAG?",
+    "answer": "RAG stands for Retrieval Augmented Generation. It is a method used in large language models (LLMs) that retrieves relevant information based on a query and then prompts an LLM to generate a response in the context of the retrieved information. This approach helps expand the LLM's access to vast amounts of information efficiently."
+}, {
+    "query": "What are the different ways to chunk documents for RAG?",
+    "answer": "IDK"
+}, {
+    "query": "What are the different metrics for evaluating a RAG system?",
+    "answer": "The different metrics for evaluating a RAG (Retrieval-Augmented Generation) system include context relevance, answer faithfulness and answer relevance. Additional metrics mentioned in the text for evaluating the retrieval and generation aspects include Accuracy, EM (Exact Match), Recall, Precision, R-Rate, Cosine Similarity, Hit Rate, MRR (Mean Reciprocal Rank), NDCG (Normalized Discounted Cumulative Gain), BLEU, and ROUGE/ROUGE-L."},
+ {"query": "What are main contributions of RAG research?",
+  "answer": "The main contributions of RAG research include a thorough and systematic review of state-of-the-art RAG methods, the delineation of its evolution through various paradigms, advancements aimed at improving factual accuracy by providing access to auxiliary information, and exploration of innovative augmentation methodologies and flexible RAG pipelines. Additionally, the research emphasizes the need for domain-specific RAG techniques to enhance performance across various applications."
+ }, {"query": "Which model is better for RAG, Claude v2 or Phi v3?",
+     "answer": "IDK"},
+{"query": "What RAG solutions exist when an input question does not cover all of the necessary detail for long form generation?", "answer": "Forward-Looking Active REtrieval augmented generation (FLARE) addresses this limitation by iteratively generating a temporary next sentence to be used as the query to retrieve relevant documents, only if it contains low-probability tokens. The retrieved documents are then used to regenerate the next sentence until reaching the sentence end"}, {
+    "query": "How to detect hallucinations in LLM-generated content?",
+    "answer": "Several approaches exist, including using few-shot prompting, linking generated responses to facts from an external knowledge base, and inspecting probabilities assigned to invididual tokens, because low probabilities may indicate low confidence and possible hallucination."
+}, {
+    "query": "What datasets are commonly used to evaluate RAG systems?",
+    "answer": ""
+}, {
+    "query": "In what year was GPT-3 introduced?",
+    "answer": "IDK"
+}]
