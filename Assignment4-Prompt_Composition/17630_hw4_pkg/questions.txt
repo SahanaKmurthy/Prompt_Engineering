@@ -1,0 +1,15 @@
+# Classification tasks often result in mis-classification. Based your inspection of the false positives, what may be some reasons the language model misclassified a non-meeting message as a meeting message?
+
+
+# What was your accuracy for the classification step?
+
+
+# When extracting the date and time of a meeting, what what challenges did you observe? How did you handle these?
+
+
+# What was your precision, recall and F-1 score for date extraction?
+
+
+# If you handled timezone information, what rules did you use to best approximate the meeting timezone?
+
+
